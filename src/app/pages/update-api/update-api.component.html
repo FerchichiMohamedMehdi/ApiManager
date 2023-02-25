@@ -1,0 +1,152 @@
+
+<div class="container">
+    <div class="card shadow mb-3">
+      <div class="card-body">
+        <h3 class="card-header text-center ">Mettre à jour API </h3>
+        <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert" dir="rtl">
+          <strong>Ajout avec success</strong>
+          <button type="button" (click)="closeAlert()" class="btn-close" data-bs-dismiss="alert"
+            aria-label="Close"></button>
+        </div>
+        <form [formGroup]="form" (ngSubmit)="onSubmit()" #localForm="ngForm" id="f">
+  
+          <div class="form-group">
+            <div class="form-row" id="fg">
+              <div class="col-md-6">
+                <label for="nomApi">Nom API:
+                  <input type="text" class="form-control" id="nomApi" [(ngModel)]="api.nomApi" formControlName="nomApi"
+                    [ngClass]="{'is-invalid':submitted && form.controls.nomApi.errors}">
+                </label>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-3">
+                <label for="etat">Etat API:</label>
+                <select (change)="selectEtat($event)"  [value]="selectedEtat" formControlName="etat"
+                  [ngClass]="{'is-invalid': submitted && form.controls.etat.errors}">
+                  <option>{{api.etat}}</option>
+                  <option *ngFor="let t of etats" >
+                    {{t.name}}
+                  </option>
+                </select>
+                <div *ngIf="submitted && form.controls.etat.errors" class="invalid-feedback">
+                  <div *ngIf="form.controls.etat.errors.required">Veuillez choisir un Etat !!</div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="type">Type API:</label>
+                <select (change)="selectType($event)" [value]="selectedType" formControlName="type" id="type"
+                  [ngClass]="{'is-invalid': submitted && form.controls.type.errors}">
+                  <option>{{api.type.libelleTypeApi}}</option>
+                  <option *ngFor="let t of types" value="{{t.idTypeApi}}">
+                    {{t.libelleTypeApi}}
+                  </option>
+                </select>
+                <div *ngIf="submitted && form.controls.type.errors" class="invalid-feedback">
+                  <div *ngIf="form.controls.type.errors.required">veuillez choisir un type !</div>
+                </div>
+              </div>
+              <div class="col-md-3">
+                <label for="categorie">Categorie:</label>
+                <select (change)="selectCategorie($event)" id="cat" [value]="selectedCat" name="categorie">
+                  <option>{{api.categorie.nomCategorie}}</option>
+                  <option  *ngFor="let t of categories" value="{{t.idCategorie}}">
+                    {{t.nomCategorie}}
+                  </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row" id="v">
+              <div class="col">
+                <label for="version">Version :</label>
+                <input type="text" class="form-control" id="version" [(ngModel)]="api.version" formControlName="version"
+                  [ngClass]="{'is-invalid':submitted && form.controls.version.errors}">
+              </div>
+              <div class="col">
+                <label for="dateVersion">Date de Version :</label>
+                <input type="date" class="form-control" id="dateVersion" required [(ngModel)]="api.dateVersion"
+                  (Change)=" fetchDate($event)" formControlName="dateVersion"
+                  [ngClass]="{'is-invalid':submitted && form.controls.dateVersion.errors}">
+              </div>
+              <div class="col form-check">
+                <label class="form-check-label" for="isDefault">Version Par defaut ?</label>
+                <input type="checkbox" id="isDefault" [(ngModel)]="api.isDefault" (change)="checked($event)">
+  
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-4">
+                <label for="fournisseur">Fournisseur :</label>
+                <select (change)="selectFournisseur($event)" [(ngModel)]="selectedFournisseur" id="fournisseur"
+                  formControlName="fournisseur" [ngClass]="{'is-invalid': submitted && form.controls.fournisseur.errors}">
+                  <option>{{api.fournisseur.nomIntervenant}}</option>
+                  <option *ngFor="let t of fournisseurs" value="{{t.idIntervenant}}">
+                    {{t.nomIntervenant}}
+                  </option>
+                </select>
+                <div *ngIf="submitted && form.controls.fournisseur.errors" class="invalid-feedback">
+                  <div *ngIf="form.controls.fournisseur.errors.required">Veuillez choisir un fournisseur !</div>
+                </div>
+              </div>
+            </div>
+          </div>
+  
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-10">
+                <mat-label>Tags:</mat-label>
+                <mat-form-field class="example-chip-list" appearance="fill">
+                  <mat-chip-list #chipList aria-label="tags">
+                    <mat-chip *ngFor="let tag of tags" (removed)="remove(tag)">
+                      {{tag.nomTag}}
+                      <button matChipRemove>
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                    <input placeholder="Nouveau tag .." 
+                      [matChipInputFor]="chipList"
+                      [matChipInputSeparatorKeyCodes]="separatorKeysCodes" 
+                      [matChipInputAddOnBlur]="addOnBlur"
+                      (matChipInputTokenEnd)="add($event)">
+                  </mat-chip-list>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-4"><label for="url">URL :</label>
+                <input type="text" class="form-control" id="url" required [(ngModel)]="api.url" formControlName="url"
+                  [ngClass]="{'is-invalid':submitted && form.controls.url.errors}">
+              </div>
+            </div>
+          </div>
+          
+          <div class="form-group">
+            <div class="form-row">
+              <label for="description">Description</label>
+              <textarea type="text" class="form-control" id="description" required [(ngModel)]="api.description"
+                name="description"></textarea>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="form-row">
+              <div class="col-md-6">
+                <label for="name">Fiechiers :</label>
+                <input type="file" class="form-control" (change)="save($event)" multiple="multiple">
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn btn-success"  id="btn">Mettre à jour</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>

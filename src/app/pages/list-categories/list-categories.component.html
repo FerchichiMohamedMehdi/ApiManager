@@ -1,0 +1,57 @@
+<div class="content">
+  <div fxLayout="row wrap" fxLayoutGap="16px grid">
+
+
+    <div>   <button mat-raised-button  id="btn" class="btn-success primary" (click)="openDialog2()">
+      <mat-icon>add</mat-icon>Ajout
+   </button></div>
+    <div fxFlex="25%" *ngFor="let c of categories">
+      <div class="wrapper">
+       
+        <div class="cols">
+          
+            <div class="col" ontouchstart="this.classList.toggle('hover');">
+              <div class="container">
+                
+
+                <div class="front" style="background-image: url(https://unsplash.it/500/500/)">
+                  <div class="inner">
+                    <p>{{c.nomCategorie}}</p>
+                    
+                  </div>
+                </div>
+                <div class="back">
+                  <button id="btn1" mat-icon-button color="warn" type="button" >
+                    <mat-icon (click)="supprimerCat(c.idCategorie)" >delete_outline</mat-icon>
+                  </button>
+                  <div class="inner" >
+                    
+                   <button (click)="openDialog(c.idCategorie)" type="button" class="btn btn-warning">List APIs</button>
+                  
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+</div>
+
+<!--<div *ngFor="let api of c.apis">
+  <li><a routerLink="/DetailApi/{{api.idApi}}">
+      {{api.nomApi}}
+    </a></li>
+</div>-->
+<!--<mat-card class="mat-elevation-z3">
+    
+        <mat-card-content>
+          <span>{{c.nomCategorie}}</span>
+        </mat-card-content>
+        <mat-card-footer>
+          <button (onclick)="listerApis(c.idCategorie)"><mat-icon>label_important</mat-icon>APIs</button>
+        </mat-card-footer>
+      </mat-card>-->

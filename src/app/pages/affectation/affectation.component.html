@@ -1,0 +1,77 @@
+<div class="container">
+  <div class="card shadow mb-3">
+    <div class="card-body">
+      <h3 class="card-header text-center ">Ajouter une Affectation</h3>
+
+    </div>
+    <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+      <strong>Ajout avec success !</strong>
+      <button type="button" (click)="closeAlert()" class="btn-close" data-bs-dismiss="alert"
+          aria-label="Close"></button>
+  </div>
+    <form [formGroup]="form" #localForm="ngForm" (ngSubmit)="onSubmit()">
+
+
+
+      <div class="form-group">
+        <div class="row">
+          <div class="col-md-6"><label for="adresseAutorise">Adresse IP autorisées
+            <input type="text" class="form-control" id="adresseAutorise" required
+              [(ngModel)]="affectation.adresseIP" formControlName="adresseAutorise"
+              [ngClass]="{'is-invalid':submitted && form.controls.adresseAutorise.errors}">
+            </label>
+          </div>
+          <div  class="col-md-4">
+            
+              <div class="form-check form-check-inline" *ngFor="let c of clients" id="for">
+                <label for="client">
+                  <input type="checkbox" name="client" value="{{c.idIntervenant}}"
+                  (change)="selectedChangeHandler($event,c.idIntervenant)" multiple="true" id="client">
+                  {{c.nomIntervenant}}</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      <mat-divider></mat-divider>
+              <div class="form-group">
+                <div class="form-row">
+              <div class="col-md-5" id="divApp">
+                <div  [hidden]="shown" class="form-control" name="div1" *ngFor="let app of apps">
+                  <label for="app"><input type="checkbox" (change)="selectedChange1Handler($event,app.idApplication)" name="app" value="{{app.idApplication}}"
+                   multiple="true" id="app">
+                    {{app.nomApplication}}</label>
+                </div>
+              </div>
+              <br>
+              <mat-divider></mat-divider>
+            
+          
+        </div>
+      </div>
+      <div class="form-group">
+        <button class="btn btn-success" type="submit">Ajouter</button>
+      </div>
+
+    </form>
+  </div>
+</div>
+
+
+<!--<div class="form-group">
+          <div class="row">
+            <label for="client"> </label>
+            <select (change)="selectedChangeHandler($event)" [(ngModel)]="selectedClient" formControlName="clients"
+              [ngClass]="{'is-invalid': submitted && form.controls.clients.errors}" multiple>
+              <option>choisir les clients</option>
+              <option *ngFor="let t of clients" value="{{t.idIntervenant}}">
+                {{t.nomIntervenant}}
+              </option>
+            </select>
+            <div *ngIf="submitted && form.controls.clients.errors" class="invalid-feedback">
+              <div *ngIf="form.controls.clients.errors.required">veuillez choisir au moin un client !!</div>
+            </div>
+
+          </div>
+
+        </div>
+      -->

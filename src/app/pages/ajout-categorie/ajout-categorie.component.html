@@ -1,0 +1,16 @@
+
+<h2 mat-dialog-title>Ajout Categorie</h2>
+<mat-dialog-content>
+    <form [formGroup]="form" #localForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" id="fg">
+            <label for="nomCategorie" id="l"><b>Libellé Categorie</b></label>
+             <mat-divider></mat-divider>
+            <input type="text" class="form-control" matInput  id="nomCategorie" 
+            (change)="valuechange($event)" [ngModel]="nomCat" formControlName="nomApplication" [value]="nomCat">
+            
+        </div>
+
+    </form>
+</mat-dialog-content>
+<button class="btn btn-success" (click)="onSubmit()">Ajouter</button>
+<button mat-button mat-dialog-close (click)="close()">Annuler</button>

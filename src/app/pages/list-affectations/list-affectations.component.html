@@ -1,0 +1,111 @@
+
+
+
+<div class="container" >
+  <div class="card shadow mb-4">
+    <div class="card-header"><h3 id="p">Liste Affectations</h3></div>
+      <div class="card-body">
+
+<div class="search-div">
+  <mat-form-field class="search-form-field" floatLabel="never" id="srch">
+     <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+     </button>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+  <ng-container matColumnDef="Id" >
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element" >{{element.idAffectation}}</td>
+  </ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="api">
+    <th mat-header-cell *matHeaderCellDef>API</th>
+    <td mat-cell *matCellDef="let element">{{element.api.nomApi}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="adressesIP">
+    <th mat-header-cell *matHeaderCellDef>Adresse IP</th>
+    <td mat-cell *matCellDef="let element">{{element.adressesIP}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="Date">
+    <th mat-header-cell *matHeaderCellDef>Date Affectation</th>
+    <td mat-cell *matCellDef="let element">{{element.dateAffectation}}</td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="Clients" >
+    <th mat-header-cell *matHeaderCellDef>Clients</th>
+    <td mat-cell *matCellDef="let element">
+      <ng-container *ngFor="let e of element.clients">
+        {{e.nomIntervenant}}  
+        <br /> <!-- Use br if you want to display the roles vertically -->
+    </ng-container></td>
+  </ng-container>
+   
+  <ng-container matColumnDef="Applications" >
+    <th mat-header-cell *matHeaderCellDef>Applications</th>
+    <td mat-cell *matCellDef="let element">
+      <ng-container *ngFor="let e of element.applications">
+        {{e.nomApplication}}  
+        <br /> <!-- Use br if you want to display the roles vertically -->
+    </ng-container></td>
+  </ng-container>
+
+   
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+      </div>
+  </div>
+</div>
+
+
+<!--<div class="container" >
+    <div class="card shadow mb-4">
+        <div class="card-body">
+    <h2 class="h"> List Affectations</h2>
+    <table class="table table -success table-striped">
+      <thead>
+        <tr>
+          <th scope="col" hidden>id</th>
+          <th scope="col">API</th>
+          <th scope="col">Adresses IP autorisé</th>
+          <th scope="col">Date Affectation</th>
+          <th scope="col">Clients</th>
+        </tr>
+      </thead>
+  
+      <tbody>
+        <tr *ngFor="let af of affectations" class="tr">
+       <td hidden>{{af.idAffectation}}</td>  
+       <td><a routerLink="">{{af.api.nomApi}}</a></td>
+       <td>{{af.adressesIP}}</td>
+       <td>{{af.dateAffectation}}</td>
+       <td >
+        <ul *ngFor="let c of af.clients"><a> {{c.nomIntervenant}}</a></ul>
+       </td>
+       <td>
+        <button mat-button class="menu-button" >
+        	<mat-icon>edit</mat-icon>
+          </button>
+          <button mat-button class="menu-button" color="warn" >
+            <mat-icon>delete</mat-icon>
+            </button>
+           
+      </td>
+       
+        </tr>
+      </tbody>
+  
+    </table>
+    </div>
+    </div>
+  </div>
+-->

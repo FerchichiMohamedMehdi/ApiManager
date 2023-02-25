@@ -1,0 +1,46 @@
+div {
+    padding: 25px;
+    font-size: large;
+}
+.card-header{
+    justify-content: center;
+    justify-items: center;
+    flex: content;
+}
+#p{
+    justify-items: center;
+    text-align: center;
+    text-decoration-color: blueviolet;
+    font-size: large;
+}
+div .table-striped{
+    border: 1px  ;
+}
+div .table-striped > tbody > tr > td {
+    border: 1px ;
+}
+div .mat-table {
+    text-decoration: blue;
+    font-size: medium;
+} 
+.primary-color{
+    color: green;
+}
+.mat-table{
+    background-color: whitesmoke;
+   text-decoration: blanchedalmond;
+}
+
+.mat-cell{
+    color:black;
+}
+.mat-header-cell{
+    color:brown;
+}
+#btna{
+    padding-left: 15px;
+    color: green;
+}
+#srch{
+    padding-left: 20px;
+}

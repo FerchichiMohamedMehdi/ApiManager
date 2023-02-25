@@ -1,0 +1,71 @@
+
+<div class="container" >
+  <div class="card shadow mb-4">
+    <div class="card-header"><h3 id="p">Liste Intervenants</h3></div>
+      <div class="card-body">
+
+<div class="search-div">
+  <button mat-raised-button routerLink="/AjoutIntervenant" class="demo-button" id="btna">
+     <mat-icon>add</mat-icon>Ajout
+  </button>
+  <mat-form-field class="search-form-field" floatLabel="never" id="srch">
+     <input matInput [(ngModel)]="searchKey" placeholder="Search" autocomplete="off" (keyup)="applyFilter()">
+     <button mat-button matSuffix mat-icon-button aria-label="Clear" *ngIf="searchKey" (click)="onSearchClear()">
+        <mat-icon>close</mat-icon>
+     </button>
+  </mat-form-field>
+</div>
+
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8 demo-table">
+
+  <ng-container matColumnDef="Id" >
+    <th mat-header-cell *matHeaderCellDef>Id</th>
+    <td mat-cell *matCellDef="let element" >{{element.idIntervenant}}</td>
+  </ng-container>
+  <!-- Position Column -->
+  <ng-container matColumnDef="nomIntervenant">
+    <th mat-header-cell *matHeaderCellDef>Nom</th>
+    <td mat-cell *matCellDef="let element">{{element.nomIntervenant}}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">{{element.email}}</td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="numTelephone">
+    <th mat-header-cell *matHeaderCellDef>Num Tel</th>
+    <td mat-cell *matCellDef="let element">{{element.numTelephone}}</td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="fax">
+    <th mat-header-cell *matHeaderCellDef>Fax</th>
+    <td mat-cell *matCellDef="let element">{{element.fax}}</td>
+  </ng-container>
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="type">
+    <th mat-header-cell *matHeaderCellDef>Type</th>
+    <td mat-cell *matCellDef="let element">{{element.type}}</td>
+  </ng-container>
+   <!-- Symbol Column -->
+   <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef></th>
+    <td mat-cell *matCellDef="let element"><button mat-button class="menu-button" routerLink="/UpdateIntervenant/{{element.idIntervenant}}" >
+      <mat-icon>edit</mat-icon>
+      </button>
+      <button mat-button class="menu-button"(click)="supprimerFournisseur(element)" color="warn" >
+        <mat-icon>delete</mat-icon>
+        </button>
+        <button mat-button class="menu-button" routerLink="/DetailIntervenant/{{element.idIntervenant}}" >
+          <mat-icon>visibility</mat-icon>
+          </button></td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+      </div>
+  </div>
+</div>

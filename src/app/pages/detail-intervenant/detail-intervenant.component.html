@@ -1,0 +1,51 @@
+<div class="container">
+    <div class="card shadow mb-4">
+        <div class="card-body">
+            <h2 class="h">Detail Intervenant </h2>
+            <table class="table table -success table-striped">
+                <thead>
+                    <tr>
+                        <th scope="col">Attribut</th>
+                        <th scope="col">Details</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nom Intervenant</td>
+                        <td>{{f.nomIntervenant}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{f.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Adresse</td>
+                        <td>{{f.adresse}}</td>
+                    </tr>
+                    <tr>
+                        <td>Numero Telephone</td>
+                        <td>{{f.numTelephone}}</td>
+                    </tr>
+                    <tr>
+                        <td>Fax</td>
+                        <td>{{f.fax}}</td>
+                    </tr>
+                    <tr>
+                        <td>Type Administration</td>
+                        <td>{{f.structure}}</td>
+                    </tr>
+                    <tr>
+                        <td>Type Intervenant</td>
+                        <td>{{f.type}}</td>
+                    </tr>
+
+                </tbody>
+
+            </table>
+        </div>
+        <div class="card-footer">
+            
+            <a class="btn btn-primary" (click)="openDialog()">Ajouter Application</a>
+        </div>
+    </div>
+</div>

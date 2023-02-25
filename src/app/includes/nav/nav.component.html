@@ -1,0 +1,37 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'"
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar>
+      <img src="./assets/images/cni.jpg" alt="CNI" id="img">
+    
+    </mat-toolbar>
+    <mat-nav-list>
+    
+      
+
+      <mat-divider></mat-divider>
+      <br>
+      <a mat-list-item routerLink="/Home"><mat-icon>dashboard</mat-icon> Dashboard</a>
+      <a mat-list-item routerLink="/ListApis">	<mat-icon>view_list</mat-icon> APIs</a>
+      <a mat-list-item routerLink="/ListIntervenants"><mat-icon>view_list</mat-icon>  Intervenants</a>
+      <a mat-list-item routerLink="/ListAffectation">	<mat-icon>view_list</mat-icon> Affectations</a>
+      <a mat-list-item routerLink="/ListCategories">	<mat-icon>view_list</mat-icon> Categories</a>
+      <mat-divider></mat-divider>
+      <br>
+      <a mat-list-item (click)="logout()"><mat-icon>logout</mat-icon> Log out</a>
+      <mat-divider></mat-divider>
+      <br>
+
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar>
+      
+    <mat-label>Gestionnaire APIs</mat-label>
+    </mat-toolbar>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  </mat-sidenav-content>
+</mat-sidenav-container>

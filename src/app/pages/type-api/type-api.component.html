@@ -1,0 +1,16 @@
+
+<h2 mat-dialog-title>Ajout Nouveau Type</h2>
+<mat-dialog-content>
+    <form [formGroup]="form" #localForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="form-group" id="fg">
+            <label for="libelleTypeApi" id="l"><b>Libellé Type Api</b></label>
+             <mat-divider></mat-divider>
+            <input type="text" class="form-control" matInput  id="libelleTypeApi" 
+            (change)="valuechange($event)" [ngModel]="libelleTypeApi" formControlName="libelleTypeApi" [value]="libelleTypeApi">
+            
+        </div>
+
+    </form>
+</mat-dialog-content>
+<button class="btn btn-success" (click)="onSubmit()">Ajouter</button>
+<button mat-button mat-dialog-close (click)="close()">Annuler</button>

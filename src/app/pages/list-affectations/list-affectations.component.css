@@ -1,0 +1,43 @@
+div {
+    margin-top: 20px;
+   font-size: medium;
+}
+div .table-striped{
+   font-size: medium ;
+}
+div {
+   margin-top: 15px;
+  font-size: medium;
+  padding: 15px;
+}
+div .table-striped{
+  font-size: medium ;
+  padding: 25px;
+}
+.card-header{
+ justify-content: center;
+ justify-items: center;
+ flex: content;
+ font-size: large;
+}
+#p{
+ justify-items: center;
+ text-align: center;
+ text-decoration-color: blueviolet;
+ font-size: large;
+}
+.demo-table {
+  width: 100%;
+}
+
+.demo-button-container {
+  padding-bottom: 16px;
+}
+
+.demo-button + .demo-button {
+  margin-left: 8px;
+}
+
+#srch{
+ padding-left: 20px;
+}

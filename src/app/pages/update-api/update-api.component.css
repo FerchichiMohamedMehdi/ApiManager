@@ -1,0 +1,57 @@
+div.container{
+    align-items: center;
+    padding-left: 135px;
+    padding-right: 135px;
+    padding-top: 10px;
+    line-height: 1.5;
+    font-size: medium;
+    
+
+}
+div.card-body{
+  background-color: whitesmoke;
+}
+
+#v{
+    display:flex;
+}
+.form-row{
+    display:flex;
+    padding-top: 10px;
+  flex-flow: row wrap;
+  align-items: center;
+ 
+}
+.form-row label{
+    margin: 5px 10px 5px 0;
+    font-family: 'Roboto Medium', sans-serif;
+}
+.form-row input{
+    vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  
+}
+.form-row select{
+    vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+.col-md-4{
+    margin: 5px;
+}
+.col{
+  vertical-align: middle;
+  margin: 5px 10px 5px 0;
+  padding: 10px;
+}
+#btn{
+  padding-top: 15px;
+  align-items: center;
+}
+.example-chip-list {
+  width: 100%;
+}

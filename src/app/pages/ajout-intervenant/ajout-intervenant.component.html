@@ -1,0 +1,97 @@
+<div class="container">
+    <div class="card shadow mb-3">
+        <div class="card-body">
+            <h3 class="card-header text-center ">Ajout Intervenant</h3>
+            <div *ngIf="alert" class="alert alert-success alert-dismissible fade show" role="alert">
+                <strong>Ajout avec success !</strong>
+                <button type="button" (click)="closeAlert()" class="btn-close" data-bs-dismiss="alert"
+                    aria-label="Close"></button>
+            </div>
+            <form [formGroup]="form" #localForm="ngForm" (ngSubmit)="onSubmit()">
+
+                <div class="form-group" id="fg">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="name">Nom </label>
+                            <input type="text" class="form-control" id="name" [(ngModel)]="intervenant.nomIntervenant"
+                                formControlName="name"
+                                [ngClass]="{'is-invalid':submitted && form.controls.name.errors}">
+                        </div>
+                        <div class="col-md-6"><label for="email">Adresse E-mail</label>
+                            <input type="text" class="form-control" id="version" [(ngModel)]="intervenant.email"
+                                formControlName="email"
+                                [ngClass]="{'is-invalid':submitted && form.controls.email.errors}">
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-6"><label for="adresse">Adresse</label>
+                            <input type="text" class="form-control" id="adresse" required
+                                [(ngModel)]="intervenant.adresse" name="adresse">
+                        </div>
+                        <div class="col-md-6"><label for="numTel">Numero Telephone</label>
+                            <input type="text" class="form-control" id="numTel" required
+                                [(ngModel)]="intervenant.numTelephone" formControlName="numTel"
+                                [ngClass]="{'is-invalid':submitted && form.controls.numTel.errors}">
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="form-group">
+                    <label for="fax">Fax</label>
+                    <input type="text" class="form-control" id="fax" required [(ngModel)]="intervenant.fax" name="fax">
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+                            <label for="typeadmin">Structure:</label>
+                            <select (change)="selectedChangeHandler($event)" [(ngModel)]="selectedAdministraion" formControlName="etat"
+                              [ngClass]="{'is-invalid': submitted && form.controls.etat.errors}">
+                              <option disabled>choisir Structure</option>
+                              <option *ngFor="let t of types">
+                                {{t.name}}
+                            </option>
+                            </select>
+                            <div *ngIf="submitted && form.controls.typeadmin.errors" class="invalid-feedback">
+                              <div *ngIf="form.controls.typeadmin.errors.required">Veuillez choisir un Etat !!</div>
+                            </div>
+                          </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="row">
+                        <div class="col-md-4">
+                            <label for="typeintervenants">Type: </label>
+                            <select (change)="selectedChangeHandler1($event)" [(ngModel)]="selectedType"
+                                formControlName="typeintervenants"
+                                [ngClass]="{'is-invalid': submitted && form.controls.typeintervenants.errors}">
+                                <option> choisir le type</option>
+                                <option *ngFor="let c of intervenants">
+                                    {{c.name}}
+                                </option>
+                            </select>
+                            <div *ngIf="submitted && form.controls.typeintervenants.errors" class="invalid-feedback">
+                                <div *ngIf="form.controls.typeintervenants.errors.required">veuillez choisir le type !!
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+
+                </div>
+                <div class="form-group">
+                    <button class="btn btn-success">Ajouter</button>
+                </div>
+            </form>
+           
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+div.container{
+    align-items: center;
+    padding-left: 135px;
+    padding-right: 135px;
+    padding-top: 10px;
+    line-height: 1.5;
+    font-size: medium;
+    
+
+}
+div.card-body{
+  background-color: whitesmoke;
+}
+.form-row{
+  padding: 18px;
+}
+#btn{
+  justify-items: center;
+}

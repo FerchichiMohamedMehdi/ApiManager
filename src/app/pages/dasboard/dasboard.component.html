@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="card shadow mb-3">
+      <div class="card-body">
+        <div class="container">
+    
+          <div class="row">
+      
+       
+        <div class="four col-md-4">
+          <div class="counter-box">
+            <i class="fa fa-thumbs-o-up"></i>
+            <span class="counter">{{nbrApi}}</span>
+            <p>Nombre APIs</p>
+          </div>
+        </div>
+        <div class="four col-md-4">
+          <div class="counter-box">
+            <i class="fa fa-thumbs-o-up"></i>
+            <span class="counter">{{nbrAff}}</span>
+            <p>Nombre Affectation</p>
+          </div>
+        </div>
+        <div class="four col-md-4">
+          <div class="counter-box">
+            <i class="fa fa-thumbs-o-up"></i>
+            <span class="counter">{{nbrInt}}</span>
+            <p>Nombre Intervenants</p>
+          </div>
+        </div>
+        </div>	
+      </div>
+      </div>
+  </div>
+  <div class="card shadow mb-3" id="card">
+    <div class="card-body">
+      <div class="container">
+    
+        <div class="row">
+          <div class="col-md-6">
+            <app-chart></app-chart>
+          </div>
+          <div class="col-md-6">
+            <app-radar-chart></app-radar-chart>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card shadow mb-3">
+    <div class="card-body">
+      <div class="container">
+    
+        <div class="row">
+          <div class="col-md-8">
+            <app-bar-chart></app-bar-chart>
+          </div>
+          <div class="col-md-3">
+           <div><app-tags></app-tags></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

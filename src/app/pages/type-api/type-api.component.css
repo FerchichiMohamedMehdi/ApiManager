@@ -1,0 +1,13 @@
+#fg{
+    padding: 25px;
+}
+.form-group{
+    padding:15px;
+}
+#l{
+    padding-bottom:10px ;
+}
+.mat-dialog-title{
+   justify-content: center;
+   justify-items: center;
+}

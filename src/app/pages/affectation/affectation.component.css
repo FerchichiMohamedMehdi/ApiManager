@@ -1,0 +1,33 @@
+div.container{
+    align-items: center;
+    padding-left: 300px;
+    padding-right: 300px;
+    padding-top: 25px;
+    line-height: 1.5;
+    font-size: medium;
+
+
+}
+.form-group{
+    padding :5px;
+  
+}
+.col-md-4{
+    margin: 5px;
+    padding: 5px;
+    display: inline;
+}
+.form-row{
+    display:flex;
+    padding-top: 5px;
+    display: inline;
+  
+ 
+}
+#div1{
+    padding-left: 15px;
+    padding: 10px;
+}
+#divApp{
+    padding-left: 25px;
+}

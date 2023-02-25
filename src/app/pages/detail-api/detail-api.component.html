@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <h2 class="h">Detail Api </h2>
+      <table class="table table -success table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Attribut</th>
+            <th scope="col">Details</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>Nom API</td>
+            <td>{{api.nomApi}}</td>
+          </tr>
+          <tr>
+            <td>Type</td>
+            <td>{{api.type.libelleTypeApi}}</td>
+          </tr>
+          <tr>
+            <td>Version</td>
+            <td>{{api.version}}</td>
+          </tr>
+          <tr>
+            <td>Date Version</td>
+            <td>{{api.dateVersion}}</td>
+          </tr>
+          <tr>
+            <td>Etat API</td>
+            <td>{{api.etat}}</td>
+          </tr>
+          
+          <tr>
+            <td>Categorie</td>
+            <td>{{api.categorie.nomCategorie}}</td>
+          </tr>
+          <tr>
+            <td>URL (End Point)</td>
+            <td>{{api.url}}</td>
+          </tr>
+          <tr>
+            <td>Fournisseur</td>
+            <td>{{api.fournisseur.nomIntervenant}}</td>
+          </tr>
+
+        </tbody>
+
+      </table>
+    </div>
+    <div class="card-footer">
+      <a class="btn btn-primary" routerLink="/Affectation/{{api.idApi}}">Affecter</a>
+      
+    </div>
+  </div>
+</div>
